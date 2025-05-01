@@ -1,6 +1,9 @@
 import os
 from dotenv import load_dotenv
 from supabase import create_client
+from fastapi import FastAPI
+
+app = FastAPI()
 
 # Carrega as variáveis do arquivo .env
 load_dotenv()
@@ -9,6 +12,10 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
 # Cria o cliente Supabase
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+@app.get("/")
+def root():
+    return {"mensagem": "API do Canil está rodando!"}
 
 # Função para listar todos os animais
 def listar_animais():
@@ -52,9 +59,16 @@ res = supabase.auth.sign_up({
 })
 print(res)
 
-# Login
-res = supabase.auth.sign_in_with_password({
-    "email": "aluno@teste.com",
-    "password": "senha_segura123"
-})
-print(res)
+# Protege a execução de código fora da API
+if __name__ == "__main__":
+    res = supabase.auth.sign_up({
+        "email": "aluno@teste.com",
+        "password": "senha_segura123"
+    })
+    print(res)
+
+    res = supabase.auth.sign_in_with_password({
+        "email": "aluno@teste.com",
+        "password": "senha_segura123"
+    })
+    print(res)
