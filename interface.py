@@ -20,7 +20,7 @@ with st.form("form_cadastro"):
     especie = st.selectbox("Espécie", ["Cachorro", "Gato"])
     raca = st.text_input("Raça")
     porte = st.selectbox("Porte", ["Pequeno", "Médio", "Grande"])
-    sexo = st.selectbox("Sexo", ["Macho", "Fêmea"])
+    sexo = st.selectbox("Sexo", ["M", "F"])
     idade = st.number_input("Idade", min_value=0, max_value=30, step=1)
     cor = st.text_input("Cor")
     dataentrada = st.date_input("Data de entrada")
