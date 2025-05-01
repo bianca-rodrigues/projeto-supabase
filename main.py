@@ -54,24 +54,3 @@ def deletar_animal(id_animal):
     print("Animal removido:")
     print(resposta.data)
 
-    # Criar usuário
-res = supabase.auth.sign_up({
-    "email": "aluno@teste.com",
-    "password": "senha_segura123"
-})
-print(res)
-
-# Protege a execução de código fora da API
-if __name__ == "__main__":
-    res = supabase.auth.sign_up({
-        "email": "aluno@teste.com",
-        "password": "senha_segura123"
-    })
-    print(res)
-
-    res = supabase.auth.sign_in_with_password({
-        "email": "aluno@teste.com",
-        "password": "senha_segura123"
-    })
-    print(res)
-
