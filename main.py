@@ -2,6 +2,8 @@ import os
 from dotenv import load_dotenv
 from supabase import create_client
 from fastapi import FastAPI
+import pandas as pd
+import matplotlib.pyplot as plt
 
 app = FastAPI()
 
@@ -72,3 +74,4 @@ if __name__ == "__main__":
         "password": "senha_segura123"
     })
     print(res)
+
